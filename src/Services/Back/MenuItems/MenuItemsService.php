@@ -21,7 +21,6 @@ class MenuItemsService implements MenuItemsServiceContract
     protected $repository;
     protected $dataManager;
 
-
     /**
      * MenuItemsService constructor.
      *
@@ -65,7 +64,6 @@ class MenuItemsService implements MenuItemsServiceContract
      *
      * @param SaveMenuRequestContract $request
      * @param MenuModelContract $menu
-     *
      */
     public function attachMenuItems(SaveMenuRequestContract $request, MenuModelContract $menu)
     {
@@ -79,7 +77,7 @@ class MenuItemsService implements MenuItemsServiceContract
 
         $itemsIDs = [];
         foreach ($items as &$menuItemData) {
-            $itemsIDs = array_merge($itemsIDs , $this->save($menuItemData, null));
+            $itemsIDs = array_merge($itemsIDs, $this->save($menuItemData, null));
         }
 
         $this->repository->destroyFromMenuExcept($menu->id, $itemsIDs);

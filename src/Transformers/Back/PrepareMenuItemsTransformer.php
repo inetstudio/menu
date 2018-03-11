@@ -15,7 +15,7 @@ class PrepareMenuItemsTransformer extends TransformerAbstract implements Prepare
      * @var array
      */
     protected $defaultIncludes = [
-        'children'
+        'children',
     ];
 
     protected $menuID;
