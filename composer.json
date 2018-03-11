@@ -1,0 +1,28 @@
+{
+    "name": "inetstudio/menu",
+    "description": "Package for menu",
+    "homepage": "https://github.com/inetstudio/menu",
+    "license": "MIT",
+    "authors": [
+      {
+        "name": "Konstantin Bukin",
+        "email": "bukin@inetstudio.ru"
+      }
+    ],
+    "require": {
+      "inetstudio/admin-panel": "1.5.*",
+      "kalnoy/nestedset": "^4.3"
+    },
+    "autoload": {
+      "psr-4": {
+        "InetStudio\\Menu\\": "src/"
+      }
+    },
+    "extra": {
+      "laravel": {
+        "providers": [
+          "InetStudio\\Menu\\Providers\\MenuServiceProvider"
+        ]
+      }
+    }
+}
