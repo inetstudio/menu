@@ -40,6 +40,18 @@ class MenusRepository implements MenusRepositoryContract
     }
 
     /**
+     * Возвращаем объект по alias.
+     *
+     * @param string $alias
+     *
+     * @return mixed
+     */
+    public function getItemByAlias(string $alias): ?MenuModelContract
+    {
+        return $this->model::where('alias', $alias)->first() ?? null;
+    }
+
+    /**
      * Возвращаем объекты по списку id.
      *
      * @param $ids

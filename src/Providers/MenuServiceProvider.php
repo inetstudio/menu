@@ -150,5 +150,6 @@ class MenuServiceProvider extends ServiceProvider
         $this->app->bind('InetStudio\Menu\Contracts\Transformers\Back\MenuTransformerContract', 'InetStudio\Menu\Transformers\Back\MenuTransformer');
         $this->app->bind('InetStudio\Menu\Contracts\Transformers\Back\PrepareMenuItemsTransformerContract', 'InetStudio\Menu\Transformers\Back\PrepareMenuItemsTransformer');
         $this->app->bind('InetStudio\Menu\Contracts\Transformers\Back\TreeTransformerContract', 'InetStudio\Menu\Transformers\Back\TreeTransformer');
+        $this->app->bind('InetStudio\Menu\Contracts\Transformers\Front\TreeTransformerContract', 'InetStudio\Menu\Transformers\Front\TreeTransformer');
     }
 }

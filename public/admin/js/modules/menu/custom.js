@@ -21,10 +21,10 @@ Admin.modals.menuItemModal = new Vue({
             if (this.action === 'create') {
                 $('.nested-list#menu_list').nestable('add', this.menuItem);
             } else {
-                $('.nested-list#menu_list').nestable('modify', this.menuItem, this.$data);
+                $('.nested-list#menu_list').nestable('modify', this.menuItem);
             }
 
-            $('.dd-item[data-id='+this.menuItem.id+']').data('modal', this.$data);
+            $('.dd-item[data-id='+this.menuItem.id+']').data('modal', $.extend({}, this.$data));
             $('.dd-item[data-id='+this.menuItem.id+']').attr('data-modal', modalDataJSON);
 
             if (this.fields.type == 'separator') {
@@ -78,7 +78,7 @@ $(document).ready(function () {
         }
     });
 
-    $('.nested-list#menu_list').data("nestable").__proto__.modify = function (item, modalData) {
+    $('.nested-list#menu_list').data("nestable").__proto__.modify = function (item) {
         var listItem = this._getItemById(item.id),
             content = listItem.children('.dd3-content');
 
