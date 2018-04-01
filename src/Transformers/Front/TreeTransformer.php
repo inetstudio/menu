@@ -5,7 +5,7 @@ namespace InetStudio\Menu\Transformers\Front;
 use League\Fractal\TransformerAbstract;
 use InetStudio\Menu\Contracts\Models\MenuItemModelContract;
 use League\Fractal\Resource\Collection as FractalCollection;
-use InetStudio\Menu\Contracts\Transformers\Back\TreeTransformerContract;
+use InetStudio\Menu\Contracts\Transformers\Front\TreeTransformerContract;
 
 /**
  * Class TreeTransformer.

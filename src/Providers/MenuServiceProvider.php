@@ -55,10 +55,6 @@ class MenuServiceProvider extends ServiceProvider
     protected function registerPublishes(): void
     {
         $this->publishes([
-            __DIR__.'/../../public' => public_path(),
-        ], 'public');
-
-        $this->publishes([
             __DIR__.'/../../config/menu.php' => config_path('menu.php'),
         ], 'config');
 

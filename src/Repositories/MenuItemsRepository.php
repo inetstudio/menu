@@ -195,7 +195,7 @@ class MenuItemsRepository implements MenuItemsRepositoryContract
      */
     protected function getItemsQuery($extColumns = [], $with = []): Builder
     {
-        $defaultColumns = ['id', 'name', 'alias'];
+        $defaultColumns = ['id', 'menu_id', 'additional_info'];
 
         $relations = [];
 

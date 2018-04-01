@@ -41,7 +41,7 @@
                                     'title' => '',
                                 ],
                                 'field' => [
-                                    'class' => 'form-control autocomplete',
+                                    'class' => 'form-control',
                                     'data-search' => '',
                                     'placeholder' => 'Введите название страницы',
                                     'id' => 'suggestion',
@@ -94,9 +94,4 @@
             </div>
         </div>
     </div>
-@endpushonce
-
-@pushonce('scripts:autocomplete')
-    <!-- AUTOCOMPLETE -->
-    <script src="{!! asset('admin/js/plugins/autocomplete/jquery.autocomplete.min.js') !!}"></script>
 @endpushonce

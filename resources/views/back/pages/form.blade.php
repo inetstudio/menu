@@ -6,16 +6,6 @@
 
 @section('title', $title)
 
-@pushonce('styles:nestable')
-    <!-- CUSTOM STYLE -->
-    <link href="{!! asset('admin/css/plugins/nestable/jquery.nestable.min.css') !!}" rel="stylesheet">
-@endpushonce
-
-@pushonce('styles:categories_custom')
-    <!-- CUSTOM STYLE -->
-    <link href="{!! asset('admin/css/modules/menu/custom.css') !!}" rel="stylesheet">
-@endpushonce
-
 @section('content')
 
     @push('breadcrumbs')
@@ -89,7 +79,7 @@
                                                     'id' => 'menu_data',
                                                 ]) !!}
 
-                                                <div class="dd nested-list" id="menu_list" data-order-serialize="#menu_data">
+                                                <div class="menu-package dd" id="menu_list" data-order-serialize="#menu_data">
                                                     @if (isset($tree) && count($tree) > 0)
                                                         <ol class="dd-list">
                                                             @foreach ($tree as $item)
@@ -123,13 +113,3 @@
 
     @include('admin.module.menu::back.modals.add_menu_item')
 @endsection
-
-@pushonce('scripts:nestable')
-    <!-- Nestable List -->
-    <script src="{!! asset('admin/js/plugins/nestable/jquery.nestable.js') !!}"></script>
-@endpushonce
-
-@pushonce('custom_scripts:menu_custom')
-    <!-- MENU CUSTOM -->
-    <script src="{!! asset('admin/js/modules/menu/custom.js') !!}"></script>
-@endpushonce
