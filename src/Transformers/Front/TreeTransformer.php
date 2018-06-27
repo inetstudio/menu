@@ -33,7 +33,7 @@ class TreeTransformer extends TransformerAbstract implements TreeTransformerCont
         $info = $item->getAttribute('additional_info');
 
         return [
-            'menuItem' => array_get($info, 'menuItem'),
+            'menuItem' => array_merge(array_get($info, 'menuItem'), ['css' => array_get($info, 'fields.cssClass')]),
             'item' => array_get($info, 'item'),
         ];
     }
