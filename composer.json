@@ -21,6 +21,7 @@
     "extra": {
       "laravel": {
         "providers": [
+          "InetStudio\\Menu\\Providers\\MenuBindingsServiceProvider",
           "InetStudio\\Menu\\Providers\\MenuServiceProvider"
         ]
       }
