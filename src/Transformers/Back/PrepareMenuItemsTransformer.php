@@ -48,7 +48,7 @@ class PrepareMenuItemsTransformer extends TransformerAbstract implements Prepare
     }
 
     /**
-     * Включаем дочерние объекты в трасформацию.
+     * Включаем дочерние объекты в трансформацию.
      *
      * @param array $item
      *

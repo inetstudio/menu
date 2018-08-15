@@ -39,7 +39,7 @@ class TreeTransformer extends TransformerAbstract implements TreeTransformerCont
     }
 
     /**
-     * Включаем дочерние объекты в трасформацию.
+     * Включаем дочерние объекты в трансформацию.
      *
      * @param MenuItemModelContract $item
      *
