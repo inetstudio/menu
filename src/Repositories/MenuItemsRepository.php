@@ -21,7 +21,7 @@ class MenuItemsRepository extends BaseRepository implements MenuItemsRepositoryC
     {
         $this->model = $model;
 
-        $this->defaultColumns = ['id', 'menu_id', 'additional_info'];
+        $this->defaultColumns = ['id', 'menu_id', 'additional_info', '_lft', '_rgt', 'parent_id'];
         $this->relations = [];
     }
 
