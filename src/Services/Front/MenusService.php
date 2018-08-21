@@ -31,13 +31,14 @@ class MenusService implements MenusServiceContract
      * Возвращаем меню.
      *
      * @param string $alias
+     * @param array $params
      *
      * @return array
      */
-    public function getMenuTree(string $alias): array
+    public function getMenuTree(string $alias, array $params = []): array
     {
         $menu = $this->menusRepository->getItemByAlias($alias);
-        $tree = ($menu) ? $this->menuItemsRepository->getTree($menu->id) : [];
+        $tree = ($menu) ? $this->menuItemsRepository->getTree($menu->id, $params) : [];
 
         $resource = (app()->make('InetStudio\Menu\Contracts\Transformers\Front\TreeTransformerContract'))
             ->transformCollection($tree);

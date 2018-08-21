@@ -5,7 +5,6 @@ namespace InetStudio\Menu\Services\Back\Menus;
 use Yajra\DataTables\DataTables;
 use Yajra\DataTables\Html\Builder;
 use Yajra\DataTables\Services\DataTable;
-use InetStudio\Menu\Contracts\Repositories\MenusRepositoryContract;
 use InetStudio\Menu\Contracts\Services\Back\Menus\MenusDataTableServiceContract;
 
 /**
@@ -14,18 +13,16 @@ use InetStudio\Menu\Contracts\Services\Back\Menus\MenusDataTableServiceContract;
 class MenusDataTableService extends DataTable implements MenusDataTableServiceContract
 {
     /**
-     * @var MenusRepositoryContract
+     * @var
      */
-    private $repository;
+    public $repository;
 
     /**
      * MenusDataTableService constructor.
-     *
-     * @param MenusRepositoryContract $repository
      */
-    public function __construct(MenusRepositoryContract $repository)
+    public function __construct()
     {
-        $this->repository = $repository;
+        $this->repository = app()->make('InetStudio\Menu\Contracts\Repositories\MenusRepositoryContract');
     }
 
     /**
@@ -52,7 +49,9 @@ class MenusDataTableService extends DataTable implements MenusDataTableServiceCo
      */
     public function query()
     {
-        $query = $this->repository->getAllItems(true);
+        $query = $this->repository->getItemsQuery([
+            'columns' => ['created_at', 'updated_at'],
+        ]);
 
         return $query;
     }

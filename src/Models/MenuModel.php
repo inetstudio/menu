@@ -45,6 +45,26 @@ class MenuModel extends Model implements MenuModelContract
     protected $revisionCreationsEnabled = true;
 
     /**
+     * Сеттер атрибута name.
+     *
+     * @param $value
+     */
+    public function setNameAttribute($value)
+    {
+        $this->attributes['name'] = strip_tags($value);
+    }
+
+    /**
+     * Сеттер атрибута alias.
+     *
+     * @param $value
+     */
+    public function setAliasAttribute($value)
+    {
+        $this->attributes['alias'] = strip_tags($value);
+    }
+
+    /**
      * Отношение "один ко многим" с моделью пунктов меню.
      *
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

@@ -43,7 +43,7 @@ class MenusController extends Controller implements MenusControllerContract
     {
         $table = $this->services['dataTables']->html();
 
-        return app()->makeWith('InetStudio\Menu\Contracts\Http\Responses\Back\Menus\IndexResponseContract', [
+        return app()->makeWith(IndexResponseContract::class, [
             'data' => compact('table'),
         ]);
     }
@@ -57,7 +57,7 @@ class MenusController extends Controller implements MenusControllerContract
     {
         $item = $this->services['menu']->getMenuObject();
 
-        return app()->makeWith('InetStudio\Menu\Contracts\Http\Responses\Back\Menus\FormResponseContract', [
+        return app()->makeWith(FormResponseContract::class, [
             'data' => compact('item'),
         ]);
     }
@@ -86,7 +86,7 @@ class MenusController extends Controller implements MenusControllerContract
         $item = $this->services['menu']->getMenuObject($id);
         $tree = $this->services['menuItems']->getTree($id);
 
-        return app()->makeWith('InetStudio\Menu\Contracts\Http\Responses\Back\Menus\FormResponseContract', [
+        return app()->makeWith(FormResponseContract::class, [
             'data' => compact('item', 'tree'),
         ]);
     }
@@ -116,7 +116,7 @@ class MenusController extends Controller implements MenusControllerContract
     {
         $item = $this->services['menu']->save($request, $id);
 
-        return app()->makeWith('InetStudio\Menu\Contracts\Http\Responses\Back\Menus\SaveResponseContract', [
+        return app()->makeWith(SaveResponseContract::class, [
             'item' => $item,
         ]);
     }
@@ -132,7 +132,7 @@ class MenusController extends Controller implements MenusControllerContract
     {
         $result = $this->services['menu']->destroy($id);
 
-        return app()->makeWith('InetStudio\Menu\Contracts\Http\Responses\Back\Menus\DestroyResponseContract', [
+        return app()->makeWith(DestroyResponseContract::class, [
             'result' => ($result === null) ? false : $result,
         ]);
     }

@@ -4,7 +4,6 @@ namespace InetStudio\Menu\Services\Back\Menus;
 
 use Illuminate\Support\Facades\Session;
 use InetStudio\Menu\Contracts\Models\MenuModelContract;
-use InetStudio\Menu\Contracts\Repositories\MenusRepositoryContract;
 use InetStudio\Menu\Contracts\Services\Back\Menus\MenusServiceContract;
 use InetStudio\Menu\Contracts\Http\Requests\Back\SaveMenuRequestContract;
 
@@ -14,18 +13,16 @@ use InetStudio\Menu\Contracts\Http\Requests\Back\SaveMenuRequestContract;
 class MenusService implements MenusServiceContract
 {
     /**
-     * @var MenusRepositoryContract
+     * @var
      */
-    private $repository;
+    public $repository;
 
     /**
      * MenusService constructor.
-     *
-     * @param MenusRepositoryContract $repository
      */
-    public function __construct(MenusRepositoryContract $repository)
+    public function __construct()
     {
-        $this->repository = $repository;
+        $this->repository = app()->make('InetStudio\Menu\Contracts\Repositories\MenusRepositoryContract');
     }
 
     /**
@@ -44,13 +41,13 @@ class MenusService implements MenusServiceContract
      * Получаем объекты по списку id.
      *
      * @param array|int $ids
-     * @param bool $returnBuilder
+     * @param array $params
      *
      * @return mixed
      */
-    public function getMenusByIDs($ids, bool $returnBuilder = false)
+    public function getMenusByIDs($ids, array $params = [])
     {
-        return $this->repository->getItemsByIDs($ids, $returnBuilder);
+        return $this->repository->getItemsByIDs($ids, $params);
     }
 
     /**
@@ -64,7 +61,7 @@ class MenusService implements MenusServiceContract
     public function save(SaveMenuRequestContract $request, int $id): MenuModelContract
     {
         $action = ($id) ? 'отредактировано' : 'создано';
-        $item = $this->repository->save($request, $id);
+        $item = $this->repository->save($request->only($this->repository->getModel()->getFillable()), $id);
 
         if ($request->filled('menu_data')) {
             app()->make('InetStudio\Menu\Contracts\Services\Back\MenuItems\MenuItemsServiceContract')

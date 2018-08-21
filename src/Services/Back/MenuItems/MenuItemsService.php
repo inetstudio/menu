@@ -6,7 +6,6 @@ use League\Fractal\Manager;
 use InetStudio\Menu\Contracts\Models\MenuModelContract;
 use InetStudio\Menu\Contracts\Models\MenuItemModelContract;
 use InetStudio\AdminPanel\Serializers\SimpleDataArraySerializer;
-use InetStudio\Menu\Contracts\Repositories\MenuItemsRepositoryContract;
 use InetStudio\Menu\Contracts\Http\Requests\Back\SaveMenuRequestContract;
 use InetStudio\Menu\Contracts\Services\Back\MenuItems\MenuItemsServiceContract;
 
@@ -16,19 +15,18 @@ use InetStudio\Menu\Contracts\Services\Back\MenuItems\MenuItemsServiceContract;
 class MenuItemsService implements MenuItemsServiceContract
 {
     /**
-     * @var MenuItemsRepositoryContract
+     * @var
      */
     protected $repository;
+
     protected $dataManager;
 
     /**
      * MenuItemsService constructor.
-     *
-     * @param MenuItemsRepositoryContract $repository
      */
-    public function __construct(MenuItemsRepositoryContract $repository)
+    public function __construct()
     {
-        $this->repository = $repository;
+        $this->repository = app()->make('InetStudio\Menu\Contracts\Repositories\MenuItemsRepositoryContract');
 
         $this->dataManager = new Manager();
         $this->dataManager->setSerializer(new SimpleDataArraySerializer());
@@ -50,13 +48,13 @@ class MenuItemsService implements MenuItemsServiceContract
      * Получаем объекты по списку id.
      *
      * @param array|int $ids
-     * @param bool $returnBuilder
+     * @param array $params
      *
      * @return mixed
      */
-    public function getMenuItemsByIDs($ids, bool $returnBuilder = false)
+    public function getMenuItemsByIDs($ids, array $params = [])
     {
-        return $this->repository->getItemsByIDs($ids, $returnBuilder);
+        return $this->repository->getItemsByIDs($ids, $params);
     }
 
     /**
@@ -124,7 +122,7 @@ class MenuItemsService implements MenuItemsServiceContract
     /**
      * Удаляем модель.
      *
-     * @param $id
+     * @param int $id
      *
      * @return bool
      */
@@ -137,12 +135,13 @@ class MenuItemsService implements MenuItemsServiceContract
      * Получаем дерево объектов.
      *
      * @param int $menuId
+     * @param array $params
      *
      * @return array
      */
-    public function getTree(int $menuId): array
+    public function getTree(int $menuId, array $params = []): array
     {
-        $tree = $this->repository->getTree($menuId);
+        $tree = $this->repository->getTree($menuId, $params);
 
         $resource = (app()->make('InetStudio\Menu\Contracts\Transformers\Back\TreeTransformerContract'))
             ->transformCollection($tree);
