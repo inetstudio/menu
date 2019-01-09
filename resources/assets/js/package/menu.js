@@ -73,7 +73,7 @@ menu.init = function () {
                     html += '        <div class="btn-group pull-right">';
                     html += '            <a href="#" class="btn btn-xs btn-default m-r-xs add-subitem"><i class="fa fa-plus-square"></i></a>';
                     html += '            <a class="btn btn-xs btn-default m-r-xs view-menu-item" href="'+item.path+'" target="_blank"><i class="fa fa-eye"></i></a>';
-                    html += '            <a href="#" class="btn btn-xs btn-default m-r-xs edit-menu-item"><i class="fa fa-pencil"></i></a>';
+                    html += '            <a href="#" class="btn btn-xs btn-default m-r-xs edit-menu-item"><i class="fa fa-pencil-alt"></i></a>';
                     html += '            <a href="#" class="btn btn-xs btn-danger delete-menu-item"><i class="fa fa-times"></i></a>';
                     html += '        </div>';
                     html += '    </div>';
