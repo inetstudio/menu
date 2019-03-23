@@ -3,17 +3,17 @@
 namespace InetStudio\Menu\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use OwenIt\Auditing\Contracts\Auditable;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Venturecraft\Revisionable\RevisionableTrait;
 use InetStudio\Menu\Contracts\Models\MenuModelContract;
 
 /**
  * Class MenuModel.
  */
-class MenuModel extends Model implements MenuModelContract
+class MenuModel extends Model implements MenuModelContract, Auditable
 {
     use SoftDeletes;
-    use RevisionableTrait;
+    use \OwenIt\Auditing\Auditable;
 
     /**
      * Связанная с моделью таблица.
@@ -42,7 +42,12 @@ class MenuModel extends Model implements MenuModelContract
         'deleted_at',
     ];
 
-    protected $revisionCreationsEnabled = true;
+    /**
+     * Should the timestamps be audited?
+     *
+     * @var bool
+     */
+    protected $auditTimestamps = true;
 
     /**
      * Сеттер атрибута name.

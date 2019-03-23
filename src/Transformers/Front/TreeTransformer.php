@@ -2,6 +2,7 @@
 
 namespace InetStudio\Menu\Transformers\Front;
 
+use Illuminate\Support\Arr;
 use League\Fractal\TransformerAbstract;
 use InetStudio\Menu\Contracts\Models\MenuItemModelContract;
 use League\Fractal\Resource\Collection as FractalCollection;
@@ -33,8 +34,8 @@ class TreeTransformer extends TransformerAbstract implements TreeTransformerCont
         $info = $item->getAttribute('additional_info');
 
         return [
-            'menuItem' => array_merge(array_get($info, 'menuItem'), ['css' => array_get($info, 'fields.cssClass')]),
-            'item' => array_get($info, 'item'),
+            'menuItem' => array_merge(Arr::get($info, 'menuItem'), ['css' => Arr::get($info, 'fields.cssClass')]),
+            'item' => Arr::get($info, 'item'),
         ];
     }
 

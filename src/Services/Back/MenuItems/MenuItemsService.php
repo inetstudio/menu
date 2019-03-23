@@ -2,6 +2,7 @@
 
 namespace InetStudio\Menu\Services\Back\MenuItems;
 
+use Illuminate\Support\Arr;
 use League\Fractal\Manager;
 use InetStudio\Menu\Contracts\Models\MenuModelContract;
 use InetStudio\Menu\Contracts\Models\MenuItemModelContract;
@@ -98,7 +99,7 @@ class MenuItemsService implements MenuItemsServiceContract
         $menuItemData['parent_id'] = $parentID;
 
         $data = $menuItemData;
-        array_forget($data, ['id', 'children', 'additional_info.action', 'additional_info.item']);
+        Arr::forget($data, ['id', 'children', 'additional_info.action', 'additional_info.item']);
 
         $menuItem = $this->repository->save($data, $menuItemData['id']);
 
