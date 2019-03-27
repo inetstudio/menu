@@ -42,7 +42,6 @@
                                 'title' => '',
                             ],
                             'field' => [
-                                'class' => 'form-control',
                                 'data-search' => '',
                                 'placeholder' => 'Введите название страницы',
                                 'id' => 'suggestion',
@@ -58,7 +57,6 @@
                                     'title' => 'Заголовок',
                                 ],
                                 'field' => [
-                                    'class' => 'form-control',
                                     'v-model' => 'fields.title',
                                 ],
                             ]) !!}
@@ -68,7 +66,6 @@
                                     'title' => 'Ссылка',
                                 ],
                                 'field' => [
-                                    'class' => 'form-control',
                                     'v-model' => 'fields.path',
                                 ],
                             ]) !!}
@@ -79,7 +76,6 @@
                                 'title' => 'CSS класс',
                             ],
                             'field' => [
-                                'class' => 'form-control',
                                 'v-model' => 'fields.cssClass',
                             ],
                         ]) !!}
