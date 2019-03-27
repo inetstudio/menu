@@ -28,8 +28,18 @@
         }
     }
 
+    .dd-empty,.dd-item,.dd-placeholder {
+        display: block;
+        position: relative;
+        margin: 0;
+        padding: 0;
+        min-height: 20px;
+        font-size: 13px;
+        line-height: 27px;
+    }
+
     .dd3-item > button {
-        margin-left: 30px;
+        margin: 8px 0 8px 30px;
         font-size: 16px;
     }
 
@@ -44,6 +54,7 @@
         overflow: hidden;
         background: white;
         cursor: move;
+        height: 37px;
 
         &:before {
             content: '≡';
