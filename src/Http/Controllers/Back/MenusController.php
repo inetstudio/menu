@@ -49,7 +49,7 @@ class MenusController extends Controller implements MenusControllerContract
     }
 
     /**
-     * Добавление объекта.
+     * Создание объекта.
      *
      * @return FormResponseContract
      */

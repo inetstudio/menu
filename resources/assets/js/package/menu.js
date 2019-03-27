@@ -67,10 +67,10 @@ menu.init = function () {
                     }).join(' ');
 
                     var html = '<li class="dd-item dd3-item" '+item_attrs_string+'>';
-                    html += '    <div class="dd-handle dd3-handle">Drag</div>';
+                    html += '    <div class="dd-handle dd3-handle"></div>';
                     html += '    <div class="dd3-content">';
                     html += content;
-                    html += '        <div class="btn-group pull-right">';
+                    html += '        <div class="float-right">';
                     html += '            <a href="#" class="btn btn-xs btn-default m-r-xs add-subitem"><i class="fa fa-plus-square"></i></a>';
                     html += '            <a class="btn btn-xs btn-default m-r-xs view-menu-item" href="'+item.path+'" target="_blank"><i class="fa fa-eye"></i></a>';
                     html += '            <a href="#" class="btn btn-xs btn-default m-r-xs edit-menu-item"><i class="fa fa-pencil-alt"></i></a>';
