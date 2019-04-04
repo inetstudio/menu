@@ -37,7 +37,7 @@ class PrepareMenuItemsTransformer extends TransformerAbstract implements Prepare
     public function transform(array $item): array
     {
         return [
-            'id' => $item['id'],
+            'id' => is_string($item['id']) ? 0 : $item['id'],
             'menu_id' => $this->menuID,
             'type' => $item['modal']['fields']['type'],
             'menuable_id' => $item['modal']['item']['id'],

@@ -20,8 +20,8 @@ class CreateMenuTables extends Migration
             $table->increments('id');
             $table->integer('menu_id')->unsigned()->default(0);
             $table->string('type');
-            $table->string('menuable_id')->default('');
-            $table->string('menuable_type')->default('');
+            $table->string('menuable_id')->nullable();
+            $table->string('menuable_type')->nullable();
             NestedSet::columns($table);
             $table->json('additional_info');
             $table->timestamps();

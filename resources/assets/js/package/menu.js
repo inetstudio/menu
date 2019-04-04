@@ -81,6 +81,9 @@ menu.init = function () {
                     html += '</li>';
 
                     return html;
+                },
+                callback: function(l, e) {
+                    $('#menu_data').val(JSON.stringify($('#menu_list').nestable('serialize')));
                 }
             });
 
