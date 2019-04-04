@@ -79,7 +79,7 @@ class MenuItemsService implements MenuItemsServiceContract
             $itemsIDs = array_merge($itemsIDs, $this->save($menuItemData, null));
         }
 
-        $this->repository->destroyFromMenuExcept($menu->id, $itemsIDs);
+        $this->repository->destroyFromMenuExcept($menu->id, $itemsIDs, []);
         $this->repository->rebuildTree($items);
     }
 
