@@ -14,7 +14,7 @@
                             'title' => 'Тип пункта',
                         ],
                         'field' => [
-                            'class' => 'select2 form-control',
+                            'class' => 'select2-drop form-control',
                             'data-placeholder' => 'Выберите тип',
                             'style' => 'width: 100%',
                             'v-model' => 'fields.type',
