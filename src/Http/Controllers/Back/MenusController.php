@@ -2,7 +2,7 @@
 
 namespace InetStudio\Menu\Http\Controllers\Back;
 
-use App\Http\Controllers\Controller;
+use InetStudio\AdminPanel\Base\Http\Controllers\Controller;
 use InetStudio\Menu\Contracts\Http\Requests\Back\SaveMenuRequestContract;
 use InetStudio\Menu\Contracts\Http\Controllers\Back\MenusControllerContract;
 use InetStudio\Menu\Contracts\Http\Responses\Back\Menus\FormResponseContract;

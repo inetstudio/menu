@@ -2,7 +2,7 @@
 
 namespace InetStudio\Menu\Http\Controllers\Back;
 
-use App\Http\Controllers\Controller;
+use InetStudio\AdminPanel\Base\Http\Controllers\Controller;
 use InetStudio\Menu\Contracts\Http\Controllers\Back\MenusDataControllerContract;
 
 /**
