@@ -15,14 +15,19 @@
     },
     "autoload": {
       "psr-4": {
-        "InetStudio\\Menu\\": "src/"
+        "InetStudio\\MenusPackage\\": "package/src/",
+        "InetStudio\\MenusPackage\\Items\\": "entities/items/src/",
+        "InetStudio\\MenusPackage\\Menus\\": "entities/menus/src/"
       }
     },
     "extra": {
       "laravel": {
         "providers": [
-          "InetStudio\\Menu\\Providers\\MenuBindingsServiceProvider",
-          "InetStudio\\Menu\\Providers\\MenuServiceProvider"
+          "InetStudio\\MenusPackage\\Providers\\ServiceProvider",
+          "InetStudio\\MenusPackage\\Items\\Providers\\BindingsServiceProvider",
+          "InetStudio\\MenusPackage\\Items\\Providers\\ServiceProvider",
+          "InetStudio\\MenusPackage\\Menus\\Providers\\BindingsServiceProvider",
+          "InetStudio\\MenusPackage\\Menus\\Providers\\ServiceProvider"
         ]
       }
     }

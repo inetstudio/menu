@@ -1,0 +1,37 @@
+<?php
+
+use Kalnoy\Nestedset\NestedSet;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+/**
+ * Class CreateMenusItemsTables.
+ */
+class CreateMenusItemsTables extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up()
+    {
+        Schema::create('menus_items', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('menu_id')->unsigned()->default(0);
+            $table->string('type');
+            $table->string('menuable_id')->nullable();
+            $table->string('menuable_type')->nullable();
+            NestedSet::columns($table);
+            $table->json('additional_info');
+            $table->timestamps();
+            $table->softDeletes();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down()
+    {
+        Schema::drop('menus_items');
+    }
+}
