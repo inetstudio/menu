@@ -17,7 +17,6 @@ class ServiceProvider extends BaseServiceProvider
     {
         $this->registerConsoleCommands();
         $this->registerPublishes();
-        //$this->registerRoutes();
         $this->registerViews();
     }
 
@@ -54,14 +53,6 @@ class ServiceProvider extends BaseServiceProvider
                 ),
             ], 'migrations'
         );
-    }
-
-    /**
-     * Регистрация путей.
-     */
-    protected function registerRoutes(): void
-    {
-        $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
     }
 
     /**
