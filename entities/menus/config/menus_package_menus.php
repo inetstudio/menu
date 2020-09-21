@@ -29,5 +29,4 @@ return [
             'suggestions' => 'back.pages.getSuggestions',
         ],
     ],
-
 ];
