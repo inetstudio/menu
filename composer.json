@@ -11,7 +11,7 @@
     ],
     "require": {
       "inetstudio/admin-panel": "^8.0",
-      "kalnoy/nestedset": "^5.0"
+      "kalnoy/nestedset": "^6.0"
     },
     "autoload": {
       "psr-4": {
