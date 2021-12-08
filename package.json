@@ -1,6 +1,6 @@
 {
   "name": "inetstudio-menu",
-  "version": "7.0.0",
+  "version": "8.0.0",
   "dependencies": {
     "devbridge-autocomplete": "^1.4.7",
     "nestable2": "^1.6.0"
