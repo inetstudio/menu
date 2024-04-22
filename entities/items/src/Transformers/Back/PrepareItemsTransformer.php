@@ -14,7 +14,7 @@ class PrepareItemsTransformer extends BaseTransformer implements PrepareItemsTra
     /**
      * @var array
      */
-    protected $defaultIncludes = [
+    protected array $defaultIncludes = [
         'children',
     ];
 
