@@ -16,7 +16,7 @@ class TreeTransformer extends BaseTransformer implements TreeTransformerContract
     /**
      * @var array
      */
-    protected $defaultIncludes = [
+    protected array $defaultIncludes = [
         'items',
     ];
 
